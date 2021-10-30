@@ -1,0 +1,36 @@
+# Linux2_2
+# 2021 calender
+
+day=(31 28 31 30 31 30 31 31 30 31 30 31)
+p=6
+m=0
+while [ $m -lt 12 ]
+do
+  echo "          2021 `expr $m + 1`"
+  echo "Sun Mon Tue Wed Thu Fri Sat"
+  k=1
+  while [ $k -lt $p]
+  do
+    echo -n "    "
+    k=`expr $k + 1`
+  done
+  k=1
+  while [ $k -le ${day[m]} ]
+  do
+    if [ $k -le 10 ]
+    then
+      echo -n "$k   "
+    else
+      echo -n "$k  "
+    fi
+    p='expr $p + 1`
+    if [ $p -gt 7 ]
+    then
+      echo -e "\n"
+      p=1
+    fi
+    k=`expr $k + 1`
+  done
+  echo -e "\n"
+  m=`expr $m + 1`
+done
